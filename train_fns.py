@@ -96,7 +96,7 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
     a fixed noise seed (to show how the model evolves throughout training),
     a set of full conditional sample sheets, and a set of interp sheets. '''
 def save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y, 
-                    state_dict, config, experiment_name):
+                    state_dict, config, experiment_name, device):
   utils.save_weights(G, D, state_dict, config['weights_root'],
                      experiment_name, None, G_ema if config['ema'] else None)
   # Save an additional copy to mitigate accidental corruption if process
@@ -138,7 +138,7 @@ def save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y,
                      samples_root=config['samples_root'],
                      experiment_name=experiment_name,
                      folder_number=state_dict['itr'],
-                     z_=z_)
+                     z_=z_, device = device)
   # Also save interp sheets
   for fix_z, fix_y in zip([False, False, True], [False, True, False]):
     utils.interp_sheet(which_G,
@@ -150,7 +150,7 @@ def save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y,
                        experiment_name=experiment_name,
                        folder_number=state_dict['itr'],
                        sheet_number=0,
-                       fix_z=fix_z, fix_y=fix_y, device='cuda')
+                       fix_z=fix_z, fix_y=fix_y, device=device)
 
 
   

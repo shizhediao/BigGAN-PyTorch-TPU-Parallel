@@ -207,7 +207,7 @@ def run(config):
           if config['ema']:
             G_ema.eval()
         train_fns.save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y, 
-                                  state_dict, config, experiment_name)
+                                  state_dict, config, experiment_name, device)
 
       # Test every specified interval
       if not (state_dict['itr'] % config['test_every']):

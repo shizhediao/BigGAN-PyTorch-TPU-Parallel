@@ -63,7 +63,8 @@ def run(config):
                        else utils.name_from_config(config))
   print('Experiment name is %s' % experiment_name)
   
-  G = model.Generator(**config).cuda()
+  # G = model.Generator(**config).cuda()
+  G = model.Generator(**config).to(device)
   utils.count_parameters(G)
   
   # Load weights
@@ -119,7 +120,7 @@ def run(config):
                          samples_root=config['samples_root'], 
                          experiment_name=experiment_name,
                          folder_number=config['sample_sheet_folder_num'],
-                         z_=z_,)
+                         z_=z_, device=device)
   # Sample interp sheets
   if config['sample_interps']:
     print('Preparing interp sheets...')
@@ -131,7 +132,7 @@ def run(config):
                          experiment_name=experiment_name,
                          folder_number=config['sample_sheet_folder_num'], 
                          sheet_number=0,
-                         fix_z=fix_z, fix_y=fix_y, device='cuda')
+                         fix_z=fix_z, fix_y=fix_y, device=device)
   # Sample random sheet
   if config['sample_random']:
     print('Preparing random sample sheet...')
