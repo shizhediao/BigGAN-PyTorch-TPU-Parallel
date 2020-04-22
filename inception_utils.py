@@ -258,7 +258,7 @@ def accumulate_inception_activations(sample, net, num_inception_images=50000):
 
 
 # Load and wrap the Inception model
-def load_inception_net(parallel=False, device):
+def load_inception_net(device, parallel=False):
   inception_model = inception_v3(pretrained=True, transform_input=False)
   # inception_model = WrapInception(inception_model.eval()).cuda()
   inception_model = WrapInception(inception_model.eval()).to(device)

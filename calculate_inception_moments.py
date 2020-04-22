@@ -58,7 +58,7 @@ def run(config):
 
   #device = 'cuda'
   device = xm.xla_device()
-  net = inception_utils.load_inception_net(parallel=config['parallel'], device)
+  net = inception_utils.load_inception_net(device, parallel=config['parallel'])
   pool, logits, labels = [], [], []
   for i, (x, y) in enumerate(tqdm(loaders[0])):
     x = x.to(device)
