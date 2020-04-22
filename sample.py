@@ -18,7 +18,9 @@ import torchvision
 import inception_utils
 import utils
 import losses
-
+# imports the torch_xla package
+import torch_xla
+import torch_xla.core.xla_model as xm
 
 
 def run(config):
@@ -46,8 +48,9 @@ def run(config):
   config = utils.update_config_roots(config)
   config['skip_init'] = True
   config['no_optim'] = True
-  device = 'cuda'
-  
+  # device = 'cuda'
+  device = xm.xla_device()
+
   # Seed RNG
   utils.seed_rng(config['seed'])
    
@@ -139,7 +142,7 @@ def run(config):
                                  normalize=True)
 
   # Get Inception Score and FID
-  get_inception_metrics = inception_utils.prepare_inception_metrics(config['dataset'], config['parallel'], config['no_fid'])
+  get_inception_metrics = inception_utils.prepare_inception_metrics(device, config['dataset'], config['parallel'], config['no_fid'])
   # Prepare a simple function get metrics that we use for trunc curves
   def get_metrics():
     sample = functools.partial(utils.sample, G=G, z_=z_, y_=y_, config=config)    
