@@ -28,6 +28,9 @@ import utils
 import losses
 import train_fns
 from sync_batchnorm import patch_replication_callback
+# imports the torch_xla package
+import torch_xla
+import torch_xla.core.xla_model as xm
 
 # The main training file. Config is a dictionary specifying the configuration
 # of this training run.
@@ -47,8 +50,9 @@ def run(config):
     print('Skipping initialization for training resumption...')
     config['skip_init'] = True
   config = utils.update_config_roots(config)
-  device = 'cuda'
-  
+  # device = 'cuda'
+  device = xm.xla_device()
+
   # Seed RNG
   utils.seed_rng(config['seed'])
 

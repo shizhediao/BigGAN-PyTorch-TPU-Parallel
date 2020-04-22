@@ -586,7 +586,7 @@ def get_data_loaders(dataset, data_root=None, augment=False, batch_size=64,
 # Utility file to seed rngs
 def seed_rng(seed):
   torch.manual_seed(seed)
-  torch.cuda.manual_seed(seed)
+  # torch.cuda.manual_seed(seed)
   np.random.seed(seed)
 
 

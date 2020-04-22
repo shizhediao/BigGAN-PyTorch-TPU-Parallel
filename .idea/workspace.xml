@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/calculate_inception_moments.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculate_inception_moments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inception_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/inception_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,22 +21,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="py" value="3" />
-          <entry key="sh" value="1" />
+          <entry key="sh" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="1" />
+          <entry key="Bash" value="2" />
           <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="28" />
+          <entry key="sh" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Bash" value="1" />
           <entry key="Python" value="28" />
         </counts>
       </usages-collector>
@@ -57,14 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calculate_inception_moments.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+            <state relative-caret-position="107">
+              <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
               <folding>
                 <element signature="e#407#425#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="219" selection-start-line="1" selection-start-column="219" selection-end-line="1" selection-end-column="219" />
             </state>
           </provider>
         </entry>
@@ -79,6 +89,7 @@
       <find>cuda</find>
       <find>prepare_inception_metrics</find>
       <find>devi</find>
+      <find>xm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,6 +100,7 @@
       <list>
         <option value="$PROJECT_DIR$/inception_utils.py" />
         <option value="$PROJECT_DIR$/calculate_inception_moments.py" />
+        <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" />
       </list>
     </option>
   </component>
@@ -227,11 +239,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calculate_inception_moments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+        <state relative-caret-position="107">
+          <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
           <folding>
             <element signature="e#407#425#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="219" selection-start-line="1" selection-start-column="219" selection-end-line="1" selection-end-column="219" />
         </state>
       </provider>
     </entry>
