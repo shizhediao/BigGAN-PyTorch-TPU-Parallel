@@ -1058,56 +1058,77 @@ def sample_1hot(batch_size, num_classes, device='cuda'):
 # x.init_distribution(dist_type, **dist_kwargs)
 # x = x.to(device,dtype)
 # This is partially based on https://discuss.pytorch.org/t/subclassing-torch-tensor/23754/2
-class Distribution(torch.Tensor):
-  # Init the params of the distribution
-  def init_distribution(self, dist_type, **kwargs):    
-    self.dist_type = dist_type
-    self.dist_kwargs = kwargs
-    if self.dist_type == 'normal':
-      self.mean, self.var = kwargs['mean'], kwargs['var']
-    elif self.dist_type == 'categorical':
-      self.num_categories = kwargs['num_categories']
+# class Distribution(torch.Tensor):
+#   # Init the params of the distribution
+#   def init_distribution(self, dist_type, **kwargs):
+#     self.dist_type = dist_type
+#     self.dist_kwargs = kwargs
+#     if self.dist_type == 'normal':
+#       self.mean, self.var = kwargs['mean'], kwargs['var']
+#     elif self.dist_type == 'categorical':
+#       self.num_categories = kwargs['num_categories']
+#
+#   def sample_(self):
+#     if self.dist_type == 'normal':
+#       self.normal_(self.mean, self.var)
+#     elif self.dist_type == 'categorical':
+#       self.random_(0, self.num_categories)
+#     # return self.variable
+#
+#   # Silly hack: overwrite the to() method to wrap the new object
+#   # in a distribution as well
+#   def to(self, *args, **kwargs):
+#     new_obj = Distribution(self)
+#     new_obj.init_distribution(self.dist_type, **self.dist_kwargs)
+#     #tempTensor = super().to(*args, **kwargs)
+#     #new_obj.data = tempTensor.data
+#     #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
+#     #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
+#     #new_obj.data.to(*args)
+#     new_obj.data.to(args[0])
+#     new_obj.data = new_obj.data.type(args[1])
+#     #new_obj.to(**kwargs)
+#     return new_obj
 
-  def sample_(self):
-    if self.dist_type == 'normal':
-      self.normal_(self.mean, self.var)
-    elif self.dist_type == 'categorical':
-      self.random_(0, self.num_categories)    
-    # return self.variable
-    
-  # Silly hack: overwrite the to() method to wrap the new object
-  # in a distribution as well
-  def to(self, *args, **kwargs):
-    new_obj = Distribution(self)
-    new_obj.init_distribution(self.dist_type, **self.dist_kwargs)
-    #tempTensor = super().to(*args, **kwargs)
-    #new_obj.data = tempTensor.data
-    #print("new_obj", new_obj)
-    #print("*args", *args)
-    #print("**kwargs", **kwargs)
-    #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
-    #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
-    #new_obj.data.to(*args)
-    new_obj.data.to(args[0])
-    new_obj.data = new_obj.data.type(args[1])
-    #new_obj.to(**kwargs)
-    return new_obj
+def distri_sample_(distri_tensor):
+  if distri_tensor.dist_type == 'normal':
+    distri_tensor.normal_(distri_tensor.mean, distri_tensor.var)
+  elif distri_tensor.dist_type == 'categorical':
+    distri_tensor.random_(0, distri_tensor.num_categories)
+  #return re
+
+def distri_init_(distri_tensor, dist_type, **kwargs):
+    distri_tensor.dist_type = dist_type
+    distri_tensor.dist_kwargs = kwargs
+    if distri_tensor.dist_type == 'normal':
+      distri_tensor.mean, distri_tensor.var = kwargs['mean'], kwargs['var']
+    elif distri_tensor.dist_type == 'categorical':
+      distri_tensor.num_categories = kwargs['num_categories']
+    return distri_tensor
 
 
 # Convenience function to prepare a z and y vector
 def prepare_z_y(G_batch_size, dim_z, nclasses, device='cuda', 
                 fp16=False,z_var=1.0):
   #finish tpu
-  z_ = Distribution(torch.randn(G_batch_size, dim_z, requires_grad=False))
-  z_.init_distribution('normal', mean=0, var=z_var)
-  z_ = z_.to(device,torch.float16 if fp16 else torch.float32)   
-  
-  if fp16:
-    z_ = z_.half()
+  z_ = torch.randn(G_batch_size, dim_z, requires_grad=False, device=device)
+  z_ = distri_init_(z_, 'normal', mean=0, var=z_var)
+  z_.type(torch.float16 if fp16 else torch.float32)
 
-  y_ = Distribution(torch.zeros(G_batch_size, requires_grad=False))
-  y_.init_distribution('categorical',num_categories=nclasses)
-  y_ = y_.to(device, torch.int64)
+  y_ = torch.zeros(G_batch_size, requires_grad=False, device=device)
+  y_ = distri_init_(y_, 'categorical', num_categories=nclasses)
+  y_.type(torch.int64)
+
+  # z_ = Distribution(torch.randn(G_batch_size, dim_z, requires_grad=False))
+  # z_.init_distribution('normal', mean=0, var=z_var)
+  # z_ = z_.to(device,torch.float16 if fp16 else torch.float32)
+  #
+  # if fp16:
+  #   z_ = z_.half()
+  #
+  # y_ = Distribution(torch.zeros(G_batch_size, requires_grad=False))
+  # y_.init_distribution('categorical',num_categories=nclasses)
+  # y_ = y_.to(device, torch.int64)
   return z_, y_
 
 
