@@ -1111,13 +1111,13 @@ def distri_init_(distri_tensor, dist_type, **kwargs):
 def prepare_z_y(G_batch_size, dim_z, nclasses, device='cuda', 
                 fp16=False,z_var=1.0):
   #finish tpu
-  z_ = torch.randn(G_batch_size, dim_z, requires_grad=False, device=device)
+  z_ = torch.randn(G_batch_size, dim_z, requires_grad=False, device=device, dtype=torch.float16 if fp16 else torch.float32)
   z_ = distri_init_(z_, 'normal', mean=0, var=z_var)
-  z_.type(torch.float16 if fp16 else torch.float32)
+  # z_.type(torch.float16 if fp16 else torch.float32)
 
-  y_ = torch.zeros(G_batch_size, requires_grad=False, device=device)
+  y_ = torch.zeros(G_batch_size, requires_grad=False, device=device, dtype=torch.int64)
   y_ = distri_init_(y_, 'categorical', num_categories=nclasses)
-  y_.type(torch.int64)
+  # y_.type(torch.int64)
 
   # z_ = Distribution(torch.randn(G_batch_size, dim_z, requires_grad=False))
   # z_.init_distribution('normal', mean=0, var=z_var)
