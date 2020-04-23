@@ -1080,9 +1080,17 @@ class Distribution(torch.Tensor):
   def to(self, *args, **kwargs):
     new_obj = Distribution(self)
     new_obj.init_distribution(self.dist_type, **self.dist_kwargs)
-    tempTensor = super().to(*args, **kwargs)
-    new_obj.data = tempTensor.data
-    # new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
+    #tempTensor = super().to(*args, **kwargs)
+    #new_obj.data = tempTensor.data
+    #print("new_obj", new_obj)
+    #print("*args", *args)
+    #print("**kwargs", **kwargs)
+    #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
+    #new_obj.data = super().to(*args, **kwargs)  #now sure it is correct or not
+    #new_obj.data.to(*args)
+    new_obj.data.to(args[0])
+    new_obj.data = new_obj.data.type(args[1])
+    #new_obj.to(**kwargs)
     return new_obj
 
 
