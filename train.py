@@ -59,8 +59,8 @@ def run(config):
   # Prepare root folders if necessary
   utils.prepare_root(config)
 
-  # Setup cudnn.benchmark for free speed
-  torch.backends.cudnn.benchmark = True
+  # Setup cudnn.benchmark for free speed. @shizhe: I think it's no use for TPU
+  # torch.backends.cudnn.benchmark = True
 
   # Import the model--this line allows us to dynamically select different files.
   model = __import__(config['model'])

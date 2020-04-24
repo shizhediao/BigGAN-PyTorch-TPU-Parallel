@@ -3,4 +3,5 @@ data/
 *.npz
 *.pyc
 .idea/
+.idea
 *.xml
