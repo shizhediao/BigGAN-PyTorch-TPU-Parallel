@@ -146,19 +146,22 @@ def run(config):
                                       'start_itr': state_dict['itr']})
 
   def train_loop_fn(model, loader, device, context):
+    print("flag1")
     # Prepare inception metrics: FID and IS
     get_inception_metrics = inception_utils.prepare_inception_metrics(device, config['dataset'], config['parallel'],
                                                                       config['no_fid'])
-
+    print("flag2, device=", device)
     # Prepare noise and randomly sampled label arrays
     # Allow for different batch sizes in G
     G_batch_size = max(config['G_batch_size'], config['batch_size'])
     z_, y_ = utils.prepare_z_y(G_batch_size, G.dim_z, config['n_classes'],
                                device=device, fp16=config['G_fp16'])
     # Prepare a fixed z & y to see individual sample evolution throghout training
+    print("flag3, device=", device)
     fixed_z, fixed_y = utils.prepare_z_y(G_batch_size, G.dim_z,
                                          config['n_classes'], device=device,
                                          fp16=config['G_fp16'])
+    print("flag4, device=", device)
     # fixed_z.sample_()
     # fixed_y.sample_()
     utils.distri_sample_(fixed_z)
