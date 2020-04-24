@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="202" column="30" lean-forward="true" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="30" />
+            <state relative-caret-position="281">
+              <caret line="154" column="13" lean-forward="true" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -69,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="581" column="29" selection-start-line="581" selection-start-column="17" selection-end-line="581" selection-end-column="29" />
+            <state relative-caret-position="186">
+              <caret line="523" column="9" lean-forward="true" selection-start-line="523" selection-start-column="4" selection-end-line="523" selection-end-column="20" />
               <folding>
                 <element signature="e#247#284#0" expanded="true" />
                 <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
@@ -160,8 +157,8 @@
       <find>opti</find>
       <find>MyLogger</find>
       <find>loaders</find>
-      <find>get_data_loaders</find>
       <find>loader</find>
+      <find>get_data_loaders</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -193,7 +190,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="119" />
+    <option name="x" value="185" />
     <option name="y" value="23" />
     <option name="width" value="1255" />
     <option name="height" value="877" />
@@ -290,7 +287,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="119" y="23" width="1255" height="877" extended-state="0" />
+    <frame x="185" y="23" width="1255" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25886232" />
@@ -471,8 +468,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="581" column="29" selection-start-line="581" selection-start-column="17" selection-end-line="581" selection-end-column="29" />
+        <state relative-caret-position="186">
+          <caret line="523" column="9" lean-forward="true" selection-start-line="523" selection-start-column="4" selection-end-line="523" selection-end-column="20" />
           <folding>
             <element signature="e#247#284#0" expanded="true" />
             <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
@@ -482,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="202" column="30" lean-forward="true" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="30" />
+        <state relative-caret-position="281">
+          <caret line="154" column="13" lean-forward="true" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
           <folding>
             <element signature="e#301#310#0" expanded="true" />
           </folding>
