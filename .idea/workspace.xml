@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/inception_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/inception_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +25,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="py" value="17" />
+          <entry key="py" value="18" />
           <entry key="sh" value="7" />
         </counts>
       </usages-collector>
@@ -33,13 +33,13 @@
         <counts>
           <entry key="Bash" value="7" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="17" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="27" />
-          <entry key="py" value="923" />
+          <entry key="py" value="1107" />
           <entry key="sh" value="5" />
         </counts>
       </usages-collector>
@@ -47,18 +47,18 @@
         <counts>
           <entry key="Bash" value="5" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="923" />
+          <entry key="Python" value="1107" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="150" column="69" selection-start-line="150" selection-start-column="44" selection-end-line="150" selection-end-column="69" />
+            <state relative-caret-position="-1698">
+              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -66,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inception_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="292" column="33" selection-start-line="292" selection-start-column="33" selection-end-line="292" selection-end-column="33" />
+            <state relative-caret-position="213">
+              <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
               <folding>
                 <element signature="e#738#756#0" expanded="true" />
               </folding>
@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.pyenv/versions/anaconda3-4.3.1/envs/python36/lib/python3.6/site-packages/torchvision/models/inception.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="315" selection-start-line="315" selection-end-line="315" />
+            <state relative-caret-position="486">
+              <caret line="62" column="35" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="35" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -112,15 +112,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_fns.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1185">
@@ -135,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BigGAN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="411" column="14" selection-start-line="411" selection-start-column="14" selection-end-line="411" selection-end-column="14" />
+            <state relative-caret-position="311">
+              <caret line="407" selection-start-line="407" selection-end-line="411" selection-end-column="14" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -155,36 +146,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>devi</find>
-      <find>model</find>
-      <find>state_di</find>
-      <find>step()</find>
       <find>xla_model</find>
       <find>dset</find>
       <find>xm</find>
       <find>gpu</find>
       <find>cuda</find>
       <find>dev</find>
-      <find>torch_xla.core.xla_model</find>
-      <find>step</find>
       <find>para</find>
       <find>which_dataset</find>
       <find>dset_dict</find>
       <find>loader</find>
       <find>.to</find>
       <find>fixed_z</find>
-      <find>ema</find>
       <find>hdf5</find>
       <find>__getitem__</find>
       <find>device</find>
       <find>parallel</find>
-      <find>load_in_mem</find>
       <find>load</find>
       <find>inception_v3</find>
-      <find>load_inception_net</find>
       <find>WrapInception</find>
-      <find>inception_v3_google</find>
       <find>prepare_inception_metrics</find>
+      <find>torch_xla.core.xla_model</find>
+      <find>load_in_mem</find>
+      <find>inception_v3_google</find>
+      <find>inception_model</find>
+      <find>load_inception_net</find>
+      <find>step</find>
+      <find>patch_replication_callback</find>
+      <find>model</find>
+      <find>G_ema</find>
+      <find>ema</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -204,8 +195,8 @@
         <option value="$PROJECT_DIR$/train_fns.py" />
         <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" />
         <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/inception_utils.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -434,44 +425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_fns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-          <folding>
-            <element signature="e#96#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BigGAN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="411" column="14" selection-start-line="411" selection-start-column="14" selection-end-line="411" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -485,32 +442,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/train_fns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding>
+            <element signature="e#96#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="111" column="36" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.pyenv/versions/anaconda3-4.3.1/envs/python36/lib/python3.6/site-packages/torchvision/models/inception.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="315" selection-start-line="315" selection-end-line="315" />
+        <state relative-caret-position="486">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="35" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/inception_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="150" column="69" selection-start-line="150" selection-start-column="44" selection-end-line="150" selection-end-column="69" />
+        <state relative-caret-position="213">
+          <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
           <folding>
-            <element signature="e#301#310#0" expanded="true" />
+            <element signature="e#738#756#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inception_utils.py">
+    <entry file="file://$PROJECT_DIR$/BigGAN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="292" column="33" selection-start-line="292" selection-start-column="33" selection-end-line="292" selection-end-column="33" />
+        <state relative-caret-position="311">
+          <caret line="407" selection-start-line="407" selection-end-line="411" selection-end-column="14" />
           <folding>
-            <element signature="e#738#756#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1698">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding>
+            <element signature="e#301#310#0" expanded="true" />
           </folding>
         </state>
       </provider>

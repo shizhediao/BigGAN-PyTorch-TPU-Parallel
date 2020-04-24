@@ -35,6 +35,17 @@ import torch_xla.distributed.data_parallel as dp
 
 # The main training file. Config is a dictionary specifying the configuration
 # of this training run.
+
+class SUPER_MODEL(nn.Module):
+  def __init__(self, G, D, G_D, G_ema, InceptionModel):
+    super(G_D, self).__init__()
+    self.G = G
+    self.D = D
+    self.G_D = G_D
+    self.G_ema = G_ema
+    self.InceptionModel = InceptionModel
+
+
 def run(config):
 
   # Update the config dict as necessary
@@ -115,10 +126,12 @@ def run(config):
                        config['load_weights'] if config['load_weights'] else None,
                        G_ema if config['ema'] else None)
 
+  inception_model = inception_utils.load_inception_net()
+  super_model = SUPER_MODEL(G, D, GD, G_ema, inception_model)
   # If parallel, parallelize the GD module
   if config['parallel']:
     # GD = nn.DataParallel(GD)
-    model_parallel = dp.DataParallel(GD, device_ids=devices)
+    model_parallel = dp.DataParallel(super_model, device_ids=devices)
     if config['cross_replica']:
       patch_replication_callback(GD)
 
@@ -144,20 +157,20 @@ def run(config):
                   * config['num_D_accumulations'])
   loaders = utils.get_data_loaders(**{**config, 'batch_size': D_batch_size,
                                       'start_itr': state_dict['itr']})
-  #inception_model = inception_utils.load_inception_net()
+
   def train_loop_fn(model, loader, device, context):
     print("flag1")
     # Prepare inception metrics: FID and IS
-    #get_inception_metrics = inception_utils.prepare_inception_metrics(inception_model, device, config['dataset'], config['parallel'], config['no_fid'])
+    get_inception_metrics = inception_utils.prepare_inception_metrics(model.inception_model, device, config['dataset'], config['parallel'], config['no_fid'])
     print("flag2, device=", device)
     # Prepare noise and randomly sampled label arrays
     # Allow for different batch sizes in G
     G_batch_size = max(config['G_batch_size'], config['batch_size'])
-    z_, y_ = utils.prepare_z_y(G_batch_size, G.dim_z, config['n_classes'],
+    z_, y_ = utils.prepare_z_y(G_batch_size, model.G.dim_z, config['n_classes'],
                                device=device, fp16=config['G_fp16'])
     # Prepare a fixed z & y to see individual sample evolution throghout training
     print("flag3, device=", device)
-    fixed_z, fixed_y = utils.prepare_z_y(G_batch_size, G.dim_z,
+    fixed_z, fixed_y = utils.prepare_z_y(G_batch_size, model.G.dim_z,
                                          config['n_classes'], device=device,
                                          fp16=config['G_fp16'])
     print("flag4, device=", device)
@@ -167,15 +180,15 @@ def run(config):
     utils.distri_sample_(fixed_y)
     # Loaders are loaded, prepare the training function
     if config['which_train_fn'] == 'GAN':
-      train = train_fns.GAN_training_function(G, D, GD, z_, y_,
+      train = train_fns.GAN_training_function(model.G, model.D, model.GD, z_, y_,
                                               ema, state_dict, config)
     # Else, assume debugging and use the dummy train fn
     else:
       train = train_fns.dummy_training_function()
     # Prepare Sample function for use with inception metrics
     sample = functools.partial(utils.sample,
-                               G=(G_ema if config['ema'] and config['use_ema']
-                                  else G),
+                               G=(model.G_ema if config['ema'] and config['use_ema']
+                                  else model.G),
                                z_=z_, y_=y_, config=config)
 
     print('Beginning training at epoch %d...' % state_dict['epoch'])
@@ -190,14 +203,14 @@ def run(config):
       state_dict['itr'] += 1
       # Make sure G and D are in training mode, just in case they got set to eval
       # For D, which typically doesn't have BN, this shouldn't matter much.
-      G.to(device)
-      D.to(device)
-      G_ema.to(device)
+      # G.to(device)
+      # D.to(device)
+      # G_ema.to(device)
 
-      G.train()
-      D.train()
+      model.G.train()
+      model.D.train()
       if config['ema']:
-        G_ema.train()
+        model.G_ema.train()
       if config['D_fp16']:
         x, y = x.to(device).half(), y.to(device)
       else:
@@ -208,7 +221,7 @@ def run(config):
       # Every sv_log_interval, log singular values
       if (config['sv_log_interval'] > 0) and (not (state_dict['itr'] % config['sv_log_interval'])):
         train_log.log(itr=int(state_dict['itr']),
-                      **{**utils.get_SVs(G, 'G'), **utils.get_SVs(D, 'D')})
+                      **{**utils.get_SVs(model.G, 'G'), **utils.get_SVs(model.D, 'D')})
 
       # If using my progbar, print metrics.
       if config['pbar'] == 'mine':
@@ -220,10 +233,10 @@ def run(config):
       if not (state_dict['itr'] % config['save_every']):
         if config['G_eval_mode']:
           print('Switchin G to eval mode...')
-          G.eval()
+          model.G.eval()
           if config['ema']:
-            G_ema.eval()
-        train_fns.save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y,
+            model.G_ema.eval()
+        train_fns.save_and_sample(model.G, model.D, model.G_ema, z_, y_, fixed_z, fixed_y,
                                   state_dict, config, experiment_name, device)
 
       # Test every specified interval
@@ -231,7 +244,7 @@ def run(config):
         if config['G_eval_mode']:
           print('Switchin G to eval mode...')
           G.eval()
-        train_fns.test(G, D, G_ema, z_, y_, state_dict, config, sample,
+        train_fns.test(model.G, model.D, model.G_ema, z_, y_, state_dict, config, sample,
                        get_inception_metrics, experiment_name, test_log)
 
   # Train for specified number of epochs, although we mostly track G iterations.
