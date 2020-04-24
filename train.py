@@ -195,9 +195,9 @@ def run(config):
 
     # Which progressbar to use? TQDM or my own?
     if config['pbar'] == 'mine':
-      pbar = utils.progress(loaders[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
+      pbar = utils.progress(loader[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
     else:
-      pbar = tqdm(loaders[0])
+      pbar = tqdm(loader[0])
     for i, (x, y) in enumerate(pbar):
       # Increment the iteration counter
       state_dict['itr'] += 1
