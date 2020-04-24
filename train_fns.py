@@ -59,10 +59,11 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
       
       # D.optim.step()
       # @shizhe: optimizer.step for TPU
-      if (len(config['device']) > 1):
-        xm.optimizer_step(D.optim)
-      else:
-        xm.optimizer_step(D.optim, barrier=True)
+      xm.optimizer_step(D.optim)
+      # if (len(config['device']) > 1):
+      #   xm.optimizer_step(D.optim)
+      # else:
+      #   xm.optimizer_step(D.optim, barrier=True)
     
     # Optionally toggle "requires_grad"
     if config['toggle_grads']:
@@ -90,10 +91,11 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
                   blacklist=[param for param in G.shared.parameters()])
     # G.optim.step()
     # @shizhe: optimizer.step for TPU
-    if (len(config['device']) > 1):
-        xm.optimizer_step(G.optim)
-    else:
-        xm.optimizer_step(G.optim, barrier=True)
+    xm.optimizer_step(G.optim)
+    # if (len(config['device']) > 1):
+    #     xm.optimizer_step(G.optim)
+    # else:
+    #     xm.optimizer_step(G.optim, barrier=True)
 
     # If we have an ema, update it, regardless of if we test with it or not
     if config['ema']:
