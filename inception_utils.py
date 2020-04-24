@@ -259,12 +259,15 @@ def accumulate_inception_activations(sample, net, num_inception_images=50000):
 
 # Load and wrap the Inception model
 def load_inception_net(device, parallel=False):
+  print("flag111, device=", device)
   inception_model = inception_v3(pretrained=True, transform_input=False)
   # inception_model = WrapInception(inception_model.eval()).cuda()
+  print("flag112， device=", device)
   inception_model = WrapInception(inception_model.eval()).to(device)
+  print("flag113,  device=", device)
   if parallel:
     print('Parallelizing Inception module...')
-    inception_model = nn.DataParallel(inception_model)
+    #inception_model = nn.DataParallel(inception_model)
   return inception_model
 
 
@@ -276,11 +279,14 @@ def prepare_inception_metrics(device, dataset, parallel, no_fid=False):
   # Load metrics; this is intentionally not in a try-except loop so that
   # the script will crash here if it cannot find the Inception moments.
   # By default, remove the "hdf5" from dataset
+  print("flag11, device:", device)
   dataset = dataset.strip('_hdf5')
   data_mu = np.load(dataset+'_inception_moments.npz')['mu']
   data_sigma = np.load(dataset+'_inception_moments.npz')['sigma']
+  print("flag12, device:", device)
   # Load network
   net = load_inception_net(device, parallel)
+  print("flag13, device:", device)
   def get_inception_metrics(sample, num_inception_images, num_splits=10, 
                             prints=True, use_torch=True):
     if prints:
