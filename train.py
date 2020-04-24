@@ -191,7 +191,7 @@ def run(config):
       G.to(device)
       D.to(device)
       G_ema.to(device)
-      
+
       G.train()
       D.train()
       if config['ema']:
