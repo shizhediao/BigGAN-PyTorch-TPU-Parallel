@@ -144,11 +144,11 @@ def run(config):
                   * config['num_D_accumulations'])
   loaders = utils.get_data_loaders(**{**config, 'batch_size': D_batch_size,
                                       'start_itr': state_dict['itr']})
-
+  inception_model = inception_utils.load_inception_net()
   def train_loop_fn(model, loader, device, context):
     print("flag1")
     # Prepare inception metrics: FID and IS
-    get_inception_metrics = inception_utils.prepare_inception_metrics(device, config['dataset'], config['parallel'],
+    get_inception_metrics = inception_utils.prepare_inception_metrics(inception_model, device, config['dataset'], config['parallel'],
                                                                       config['no_fid'])
     print("flag2, device=", device)
     # Prepare noise and randomly sampled label arrays
