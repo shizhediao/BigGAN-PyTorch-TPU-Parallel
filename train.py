@@ -38,7 +38,7 @@ import torch_xla.distributed.data_parallel as dp
 
 class SUPER_MODEL(nn.Module):
   def __init__(self, G, D, G_D, G_ema, InceptionModel):
-    super(G_D, self).__init__()
+    super(SUPER_MODEL, self).__init__()
     self.G = G
     self.D = D
     self.G_D = G_D
