@@ -156,7 +156,7 @@ def run(config):
   D_batch_size = (config['batch_size'] * config['num_D_steps']
                   * config['num_D_accumulations'])
   loaders = utils.get_data_loaders(**{**config, 'batch_size': D_batch_size,
-                                      'start_itr': state_dict['itr']})
+                                      'start_itr': state_dict['itr']})[0]
 
   def train_loop_fn(model, loader, device, context):
     print("flag1")
@@ -195,9 +195,11 @@ def run(config):
 
     # Which progressbar to use? TQDM or my own?
     if config['pbar'] == 'mine':
-      pbar = utils.progress(loader[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
+      # pbar = utils.progress(loader[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
+      pbar = utils.progress(loader, displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
     else:
-      pbar = tqdm(loader[0])
+      # pbar = tqdm(loader[0])
+      pbar = tqdm(loader)
     for i, (x, y) in enumerate(pbar):
       # Increment the iteration counter
       state_dict['itr'] += 1

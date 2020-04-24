@@ -39,7 +39,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="27" />
-          <entry key="py" value="1120" />
+          <entry key="py" value="1125" />
           <entry key="sh" value="8" />
         </counts>
       </usages-collector>
@@ -47,7 +47,7 @@
         <counts>
           <entry key="Bash" value="8" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="1120" />
+          <entry key="Python" value="1125" />
         </counts>
       </usages-collector>
     </session>
@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="229" column="21" lean-forward="true" selection-start-line="229" selection-start-column="21" selection-end-line="229" selection-end-column="21" />
+            <state relative-caret-position="-238">
+              <caret line="202" column="30" lean-forward="true" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="30" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -69,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="917" column="13" lean-forward="true" selection-start-line="917" selection-start-column="13" selection-end-line="917" selection-end-column="13" />
+            <state relative-caret-position="289">
+              <caret line="581" column="29" selection-start-line="581" selection-start-column="17" selection-end-line="581" selection-end-column="29" />
               <folding>
                 <element signature="e#247#284#0" expanded="true" />
                 <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
@@ -132,8 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>torch_xla.core.xla_model</find>
-      <find>inception_v3_google</find>
       <find>patch_replication_callback</find>
       <find>model</find>
       <find>G_ema</find>
@@ -145,7 +143,6 @@
       <find>load_inception_net</find>
       <find>opt</find>
       <find>deleting</find>
-      <find>loader</find>
       <find>MetricsLogger</find>
       <find>Deleting singular value</find>
       <find>test_log</find>
@@ -157,11 +154,14 @@
       <find>reinitialize</find>
       <find>prepare_z_y</find>
       <find>save_every</find>
-      <find>MyLogger</find>
       <find>sample</find>
       <find>parallel</find>
       <find>nn.para</find>
       <find>opti</find>
+      <find>MyLogger</find>
+      <find>loaders</find>
+      <find>get_data_loaders</find>
+      <find>loader</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -297,7 +297,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.34267515" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.124840766" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -449,17 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="917" column="13" lean-forward="true" selection-start-line="917" selection-start-column="13" selection-end-line="917" selection-end-column="13" />
-          <folding>
-            <element signature="e#247#284#0" expanded="true" />
-            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -480,10 +469,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="581" column="29" selection-start-line="581" selection-start-column="17" selection-end-line="581" selection-end-column="29" />
+          <folding>
+            <element signature="e#247#284#0" expanded="true" />
+            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="229" column="21" lean-forward="true" selection-start-line="229" selection-start-column="21" selection-end-line="229" selection-end-column="21" />
+        <state relative-caret-position="-238">
+          <caret line="202" column="30" lean-forward="true" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="30" />
           <folding>
             <element signature="e#301#310#0" expanded="true" />
           </folding>
