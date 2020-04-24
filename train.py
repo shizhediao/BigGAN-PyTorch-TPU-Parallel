@@ -230,22 +230,22 @@ def run(config):
                            for key in metrics]), end=' ')
 
       # Save weights and copies as configured at specified interval
-      if not (state_dict['itr'] % config['save_every']):
-        if config['G_eval_mode']:
-          print('Switchin G to eval mode...')
-          model.G.eval()
-          if config['ema']:
-            model.G_ema.eval()
-        train_fns.save_and_sample(model.G, model.D, model.G_ema, z_, y_, fixed_z, fixed_y,
-                                  state_dict, config, experiment_name, device)
-
-      # Test every specified interval
-      if not (state_dict['itr'] % config['test_every']):
-        if config['G_eval_mode']:
-          print('Switchin G to eval mode...')
-          model.G.eval()
-        train_fns.test(model.G, model.D, model.G_ema, z_, y_, state_dict, config, sample,
-                       get_inception_metrics, experiment_name, test_log)
+      # if not (state_dict['itr'] % config['save_every']):
+      #   if config['G_eval_mode']:
+      #     print('Switchin G to eval mode...')
+      #     model.G.eval()
+      #     if config['ema']:
+      #       model.G_ema.eval()
+      #   train_fns.save_and_sample(model.G, model.D, model.G_ema, z_, y_, fixed_z, fixed_y,
+      #                             state_dict, config, experiment_name, device)
+      #
+      # # Test every specified interval
+      # if not (state_dict['itr'] % config['test_every']):
+      #   if config['G_eval_mode']:
+      #     print('Switchin G to eval mode...')
+      #     model.G.eval()
+      #   train_fns.test(model.G, model.D, model.G_ema, z_, y_, state_dict, config, sample,
+      #                  get_inception_metrics, experiment_name, test_log)
 
   # Train for specified number of epochs, although we mostly track G iterations.
   for epoch in range(state_dict['epoch'], config['num_epochs']):
