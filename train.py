@@ -52,7 +52,8 @@ def run(config):
     config['skip_init'] = True
   config = utils.update_config_roots(config)
   # device = 'cuda'
-  device = xm.xla_device()
+  # device = xm.xla_device()
+  device = xm.get_xla_supported_devices()
   config['device'] = device
 
   # Seed RNG
@@ -113,7 +114,7 @@ def run(config):
   # If parallel, parallelize the GD module
   if config['parallel']:
     # GD = nn.DataParallel(GD)
-    GD = dp.DataParallel(GD, device_ids=device)
+    model_parallel = dp.DataParallel(GD, device_ids=device)
     if config['cross_replica']:
       patch_replication_callback(GD)
 
@@ -170,11 +171,11 @@ def run(config):
                               z_=z_, y_=y_, config=config)
 
   print('Beginning training at epoch %d...' % state_dict['epoch'])
-  # Train for specified number of epochs, although we mostly track G iterations.
-  for epoch in range(state_dict['epoch'], config['num_epochs']):    
+
+  def train_loop_fn(model, loader, device, context):
     # Which progressbar to use? TQDM or my own?
     if config['pbar'] == 'mine':
-      pbar = utils.progress(loaders[0],displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
+      pbar = utils.progress(loaders[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
     else:
       pbar = tqdm(loaders[0])
     for i, (x, y) in enumerate(pbar):
@@ -192,16 +193,16 @@ def run(config):
         x, y = x.to(device), y.to(device)
       metrics = train(x, y)
       train_log.log(itr=int(state_dict['itr']), **metrics)
-      
+
       # Every sv_log_interval, log singular values
       if (config['sv_log_interval'] > 0) and (not (state_dict['itr'] % config['sv_log_interval'])):
-        train_log.log(itr=int(state_dict['itr']), 
+        train_log.log(itr=int(state_dict['itr']),
                       **{**utils.get_SVs(G, 'G'), **utils.get_SVs(D, 'D')})
 
       # If using my progbar, print metrics.
       if config['pbar'] == 'mine':
-          print(', '.join(['itr: %d' % state_dict['itr']] 
-                           + ['%s : %+4.3f' % (key, metrics[key])
+        print(', '.join(['itr: %d' % state_dict['itr']]
+                        + ['%s : %+4.3f' % (key, metrics[key])
                            for key in metrics]), end=' ')
 
       # Save weights and copies as configured at specified interval
@@ -211,7 +212,7 @@ def run(config):
           G.eval()
           if config['ema']:
             G_ema.eval()
-        train_fns.save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y, 
+        train_fns.save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y,
                                   state_dict, config, experiment_name, device)
 
       # Test every specified interval
@@ -221,8 +222,65 @@ def run(config):
           G.eval()
         train_fns.test(G, D, G_ema, z_, y_, state_dict, config, sample,
                        get_inception_metrics, experiment_name, test_log)
+
+  # Train for specified number of epochs, although we mostly track G iterations.
+  for epoch in range(state_dict['epoch'], config['num_epochs']):
+    model_parallel(train_loop_fn, loaders)
     # Increment epoch counter at end of epoch
     state_dict['epoch'] += 1
+
+  # for epoch in range(state_dict['epoch'], config['num_epochs']):
+  #   # Which progressbar to use? TQDM or my own?
+  #   if config['pbar'] == 'mine':
+  #     pbar = utils.progress(loaders[0],displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
+  #   else:
+  #     pbar = tqdm(loaders[0])
+  #   for i, (x, y) in enumerate(pbar):
+  #     # Increment the iteration counter
+  #     state_dict['itr'] += 1
+  #     # Make sure G and D are in training mode, just in case they got set to eval
+  #     # For D, which typically doesn't have BN, this shouldn't matter much.
+  #     G.train()
+  #     D.train()
+  #     if config['ema']:
+  #       G_ema.train()
+  #     if config['D_fp16']:
+  #       x, y = x.to(device).half(), y.to(device)
+  #     else:
+  #       x, y = x.to(device), y.to(device)
+  #     metrics = train(x, y)
+  #     train_log.log(itr=int(state_dict['itr']), **metrics)
+  #
+  #     # Every sv_log_interval, log singular values
+  #     if (config['sv_log_interval'] > 0) and (not (state_dict['itr'] % config['sv_log_interval'])):
+  #       train_log.log(itr=int(state_dict['itr']),
+  #                     **{**utils.get_SVs(G, 'G'), **utils.get_SVs(D, 'D')})
+  #
+  #     # If using my progbar, print metrics.
+  #     if config['pbar'] == 'mine':
+  #         print(', '.join(['itr: %d' % state_dict['itr']]
+  #                          + ['%s : %+4.3f' % (key, metrics[key])
+  #                          for key in metrics]), end=' ')
+  #
+  #     # Save weights and copies as configured at specified interval
+  #     if not (state_dict['itr'] % config['save_every']):
+  #       if config['G_eval_mode']:
+  #         print('Switchin G to eval mode...')
+  #         G.eval()
+  #         if config['ema']:
+  #           G_ema.eval()
+  #       train_fns.save_and_sample(G, D, G_ema, z_, y_, fixed_z, fixed_y,
+  #                                 state_dict, config, experiment_name, device)
+  #
+  #     # Test every specified interval
+  #     if not (state_dict['itr'] % config['test_every']):
+  #       if config['G_eval_mode']:
+  #         print('Switchin G to eval mode...')
+  #         G.eval()
+  #       train_fns.test(G, D, G_ema, z_, y_, state_dict, config, sample,
+  #                      get_inception_metrics, experiment_name, test_log)
+  #   # Increment epoch counter at end of epoch
+  #   state_dict['epoch'] += 1
 
 
 def main():

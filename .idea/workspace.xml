@@ -25,21 +25,21 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="py" value="13" />
-          <entry key="sh" value="3" />
+          <entry key="py" value="15" />
+          <entry key="sh" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="3" />
+          <entry key="Bash" value="4" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="13" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="27" />
-          <entry key="py" value="750" />
+          <entry key="py" value="803" />
           <entry key="sh" value="1" />
         </counts>
       </usages-collector>
@@ -47,7 +47,7 @@
         <counts>
           <entry key="Bash" value="1" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="750" />
+          <entry key="Python" value="803" />
         </counts>
       </usages-collector>
     </session>
@@ -57,20 +57,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+            <state relative-caret-position="312">
+              <caret line="140" column="34" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="34" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
+                <marker date="1587709610506" expanded="true" signature="7115:9211" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="581" column="30" lean-forward="true" selection-start-line="581" selection-start-column="30" selection-end-line="581" selection-end-column="30" />
+              <folding>
+                <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_fns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="65" column="4" lean-forward="true" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+            <state relative-caret-position="1185">
+              <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
               <folding>
                 <element signature="e#96#108#0" expanded="true" />
               </folding>
@@ -81,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BigGAN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="358" column="17" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="17" />
+            <state relative-caret-position="371">
+              <caret line="411" column="14" lean-forward="true" selection-start-line="411" selection-start-column="14" selection-end-line="411" selection-end-column="14" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -101,18 +123,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xm</find>
-      <find>cu</find>
-      <find>load_inception_net</find>
-      <find>tensor</find>
-      <find>sample_1hot</find>
-      <find>sample_sheet</find>
-      <find>prepare_inception_metrics</find>
-      <find>dev</find>
       <find>prepare_z_y</find>
       <find>Distribution</find>
-      <find>cuda</find>
-      <find>gpu</find>
       <find>utils</find>
       <find>cudnn</find>
       <find>distri</find>
@@ -122,13 +134,25 @@
       <find>optim</find>
       <find>train</find>
       <find>opti</find>
-      <find>step</find>
       <find>devi</find>
       <find>model</find>
       <find>device</find>
       <find>state_di</find>
       <find>step()</find>
       <find>xla_model</find>
+      <find>dset</find>
+      <find>load_in_mem</find>
+      <find>xm</find>
+      <find>gpu</find>
+      <find>cuda</find>
+      <find>dev</find>
+      <find>torch_xla.core.xla_model</find>
+      <find>step</find>
+      <find>para</find>
+      <find>which_dataset</find>
+      <find>dset_dict</find>
+      <find>loader</find>
+      <find>__getitem__</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -147,8 +171,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/sample.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/train_fns.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -159,7 +183,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="69" />
+    <option name="x" value="197" />
     <option name="y" value="23" />
     <option name="width" value="1198" />
     <option name="height" value="877" />
@@ -176,6 +200,11 @@
             <path>
               <item name="BigGAN-PyTorch-TPU" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigGAN-PyTorch-TPU" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigGAN-PyTorch-TPU" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigGAN-PyTorch-TPU" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -246,10 +275,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="23" width="1198" height="877" extended-state="0" />
+    <frame x="197" y="23" width="1198" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25432527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.060553633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -367,9 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs512x4.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -380,42 +406,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs512x4.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="88" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_fns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding>
+            <element signature="e#96#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BigGAN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="358" column="17" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="17" />
+        <state relative-caret-position="371">
+          <caret line="411" column="14" lean-forward="true" selection-start-line="411" selection-start-column="14" selection-end-line="411" selection-end-column="14" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="981" column="34" selection-start-line="981" selection-start-column="29" selection-end-line="981" selection-end-column="34" />
-          <folding>
-            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+        <state relative-caret-position="312">
+          <caret line="140" column="34" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="34" />
           <folding>
             <element signature="e#301#310#0" expanded="true" />
+            <marker date="1587709610506" expanded="true" signature="7115:9211" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_fns.py">
+    <entry file="file://$PROJECT_DIR$/datasets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="65" column="4" lean-forward="true" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        <state relative-caret-position="314">
+          <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="581" column="30" lean-forward="true" selection-start-line="581" selection-start-column="30" selection-end-line="581" selection-end-column="30" />
           <folding>
-            <element signature="e#96#108#0" expanded="true" />
+            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
           </folding>
         </state>
       </provider>

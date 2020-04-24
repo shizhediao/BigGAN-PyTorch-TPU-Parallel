@@ -59,7 +59,7 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
       
       # D.optim.step()
       # @shizhe: optimizer.step for TPU
-      if(xm.xrt_world_size(defval=1) > 1):
+      if (len(config['device']) > 1):
         xm.optimizer_step(D.optim)
       else:
         xm.optimizer_step(D.optim, barrier=True)
@@ -90,7 +90,7 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
                   blacklist=[param for param in G.shared.parameters()])
     # G.optim.step()
     # @shizhe: optimizer.step for TPU
-    if (xm.xrt_world_size(defval=1) > 1):
+    if (len(config['device']) > 1):
         xm.optimizer_step(G.optim)
     else:
         xm.optimizer_step(G.optim, barrier=True)
