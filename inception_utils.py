@@ -269,7 +269,7 @@ def accumulate_inception_activations(sample, net, num_inception_images=50000):
 #     print('Parallelizing Inception module...')
 #     #inception_model = nn.DataParallel(inception_model)
 #   return inception_model
-def load_inception_net(device, parallel=False):
+def load_inception_net():
   inception_model = inception_v3(pretrained=True, transform_input=False)
   inception_model = WrapInception(inception_model.eval())
   return inception_model
