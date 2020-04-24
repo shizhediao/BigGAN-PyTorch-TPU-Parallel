@@ -8,6 +8,7 @@ import os
 
 import utils
 import losses
+import torch_xla.core.xla_model as xm
 
 
 # Dummy training function for debugging
@@ -56,7 +57,12 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
         print('using modified ortho reg in D')
         utils.ortho(D, config['D_ortho'])
       
-      D.optim.step()
+      # D.optim.step()
+      # @shizhe: optimizer.step for TPU
+      if(xm.xrt_world_size(defval=1) > 1):
+        xm.optimizer_step(D.optim)
+      else:
+        xm.optimizer_step(D.optim, barrier=True)
     
     # Optionally toggle "requires_grad"
     if config['toggle_grads']:
@@ -82,8 +88,13 @@ def GAN_training_function(G, D, GD, z_, y_, ema, state_dict, config):
       # Don't ortho reg shared, it makes no sense. Really we should blacklist any embeddings for this
       utils.ortho(G, config['G_ortho'], 
                   blacklist=[param for param in G.shared.parameters()])
-    G.optim.step()
-    
+    # G.optim.step()
+    # @shizhe: optimizer.step for TPU
+    if (xm.xrt_world_size(defval=1) > 1):
+        xm.optimizer_step(G.optim)
+    else:
+        xm.optimizer_step(G.optim, barrier=True)
+
     # If we have an ema, update it, regardless of if we test with it or not
     if config['ema']:
       ema.update(state_dict['itr'])

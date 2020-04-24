@@ -31,6 +31,7 @@ from sync_batchnorm import patch_replication_callback
 # imports the torch_xla package
 import torch_xla
 import torch_xla.core.xla_model as xm
+import torch_xla.distributed.data_parallel as dp
 
 # The main training file. Config is a dictionary specifying the configuration
 # of this training run.
@@ -52,6 +53,7 @@ def run(config):
   config = utils.update_config_roots(config)
   # device = 'cuda'
   device = xm.xla_device()
+  config['device'] = device
 
   # Seed RNG
   utils.seed_rng(config['seed'])
@@ -110,7 +112,8 @@ def run(config):
 
   # If parallel, parallelize the GD module
   if config['parallel']:
-    GD = nn.DataParallel(GD)
+    # GD = nn.DataParallel(GD)
+    GD = dp.DataParallel(GD, device_ids=device)
     if config['cross_replica']:
       patch_replication_callback(GD)
 
