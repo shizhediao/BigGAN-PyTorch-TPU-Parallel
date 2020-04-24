@@ -243,7 +243,7 @@ def run(config):
       if not (state_dict['itr'] % config['test_every']):
         if config['G_eval_mode']:
           print('Switchin G to eval mode...')
-          G.eval()
+          model.G.eval()
         train_fns.test(model.G, model.D, model.G_ema, z_, y_, state_dict, config, sample,
                        get_inception_metrics, experiment_name, test_log)
 
