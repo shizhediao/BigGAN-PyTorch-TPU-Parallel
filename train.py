@@ -53,8 +53,8 @@ def run(config):
   config = utils.update_config_roots(config)
   # device = 'cuda'
   # device = xm.xla_device()
-  device = xm.get_xla_supported_devices()
-  config['device'] = device
+  devices = xm.get_xla_supported_devices()
+  config['device'] = devices
 
   # Seed RNG
   utils.seed_rng(config['seed'])
@@ -72,14 +72,18 @@ def run(config):
   print('Experiment name is %s' % experiment_name)
 
   # Next, build the model
-  G = model.Generator(**config).to(device)
-  D = model.Discriminator(**config).to(device)
+  # G = model.Generator(**config).to(devices)
+  # D = model.Discriminator(**config).to(devices)
+  G = model.Generator(**config)
+  D = model.Discriminator(**config)
   
    # If using EMA, prepare it
   if config['ema']:
     print('Preparing EMA for G with decay of {}'.format(config['ema_decay']))
-    G_ema = model.Generator(**{**config, 'skip_init':True, 
-                               'no_optim': True}).to(device)
+    # G_ema = model.Generator(**{**config, 'skip_init':True,
+    #                            'no_optim': True}).to(devices)
+    G_ema = model.Generator(**{**config, 'skip_init':True,
+                               'no_optim': True})
     ema = utils.ema(G, G_ema, config['ema_decay'], config['ema_start'])
   else:
     G_ema, ema = None, None
@@ -114,7 +118,7 @@ def run(config):
   # If parallel, parallelize the GD module
   if config['parallel']:
     # GD = nn.DataParallel(GD)
-    model_parallel = dp.DataParallel(GD, device_ids=device)
+    model_parallel = dp.DataParallel(GD, device_ids=devices)
     if config['cross_replica']:
       patch_replication_callback(GD)
 
@@ -141,38 +145,39 @@ def run(config):
   loaders = utils.get_data_loaders(**{**config, 'batch_size': D_batch_size,
                                       'start_itr': state_dict['itr']})
 
-  # Prepare inception metrics: FID and IS
-  get_inception_metrics = inception_utils.prepare_inception_metrics(device, config['dataset'], config['parallel'], config['no_fid'])
-
-  # Prepare noise and randomly sampled label arrays
-  # Allow for different batch sizes in G
-  G_batch_size = max(config['G_batch_size'], config['batch_size'])
-  z_, y_ = utils.prepare_z_y(G_batch_size, G.dim_z, config['n_classes'],
-                             device=device, fp16=config['G_fp16'])
-  # Prepare a fixed z & y to see individual sample evolution throghout training
-  fixed_z, fixed_y = utils.prepare_z_y(G_batch_size, G.dim_z,
-                                       config['n_classes'], device=device,
-                                       fp16=config['G_fp16'])  
-  # fixed_z.sample_()
-  # fixed_y.sample_()
-  utils.distri_sample_(fixed_z)
-  utils.distri_sample_(fixed_y)
-  # Loaders are loaded, prepare the training function
-  if config['which_train_fn'] == 'GAN':
-    train = train_fns.GAN_training_function(G, D, GD, z_, y_, 
-                                            ema, state_dict, config)
-  # Else, assume debugging and use the dummy train fn
-  else:
-    train = train_fns.dummy_training_function()
-  # Prepare Sample function for use with inception metrics
-  sample = functools.partial(utils.sample,
-                              G=(G_ema if config['ema'] and config['use_ema']
-                                 else G),
-                              z_=z_, y_=y_, config=config)
-
-  print('Beginning training at epoch %d...' % state_dict['epoch'])
-
   def train_loop_fn(model, loader, device, context):
+    # Prepare inception metrics: FID and IS
+    get_inception_metrics = inception_utils.prepare_inception_metrics(device, config['dataset'], config['parallel'],
+                                                                      config['no_fid'])
+
+    # Prepare noise and randomly sampled label arrays
+    # Allow for different batch sizes in G
+    G_batch_size = max(config['G_batch_size'], config['batch_size'])
+    z_, y_ = utils.prepare_z_y(G_batch_size, G.dim_z, config['n_classes'],
+                               device=device, fp16=config['G_fp16'])
+    # Prepare a fixed z & y to see individual sample evolution throghout training
+    fixed_z, fixed_y = utils.prepare_z_y(G_batch_size, G.dim_z,
+                                         config['n_classes'], device=device,
+                                         fp16=config['G_fp16'])
+    # fixed_z.sample_()
+    # fixed_y.sample_()
+    utils.distri_sample_(fixed_z)
+    utils.distri_sample_(fixed_y)
+    # Loaders are loaded, prepare the training function
+    if config['which_train_fn'] == 'GAN':
+      train = train_fns.GAN_training_function(G, D, GD, z_, y_,
+                                              ema, state_dict, config)
+    # Else, assume debugging and use the dummy train fn
+    else:
+      train = train_fns.dummy_training_function()
+    # Prepare Sample function for use with inception metrics
+    sample = functools.partial(utils.sample,
+                               G=(G_ema if config['ema'] and config['use_ema']
+                                  else G),
+                               z_=z_, y_=y_, config=config)
+
+    print('Beginning training at epoch %d...' % state_dict['epoch'])
+
     # Which progressbar to use? TQDM or my own?
     if config['pbar'] == 'mine':
       pbar = utils.progress(loaders[0], displaytype='s1k' if config['use_multiepoch_sampler'] else 'eta')
@@ -183,6 +188,10 @@ def run(config):
       state_dict['itr'] += 1
       # Make sure G and D are in training mode, just in case they got set to eval
       # For D, which typically doesn't have BN, this shouldn't matter much.
+      G.to(device)
+      D.to(device)
+      G_ema.to(device)
+      
       G.train()
       D.train()
       if config['ema']:
