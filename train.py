@@ -37,13 +37,13 @@ import torch_xla.distributed.data_parallel as dp
 # of this training run.
 
 class SUPER_MODEL(nn.Module):
-  def __init__(self, G, D, GD, G_ema, InceptionModel):
+  def __init__(self, G, D, GD, G_ema, inception_model):
     super(SUPER_MODEL, self).__init__()
     self.G = G
     self.D = D
     self.GD = GD
     self.G_ema = G_ema
-    self.InceptionModel = InceptionModel
+    self.inception_model = inception_model
 
 
 def run(config):
