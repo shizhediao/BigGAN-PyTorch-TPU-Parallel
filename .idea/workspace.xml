@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="" />
+    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +25,12 @@
         <counts>
           <entry key="gitignore" value="2" />
           <entry key="py" value="19" />
-          <entry key="sh" value="9" />
+          <entry key="sh" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="9" />
+          <entry key="Bash" value="11" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="19" />
         </counts>
@@ -54,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="210" column="22" selection-start-line="210" selection-start-column="22" selection-end-line="210" selection-end-column="22" />
+            <state relative-caret-position="240">
+              <caret line="213" column="21" lean-forward="true" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -63,15 +65,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="575" column="17" selection-start-line="575" selection-start-column="17" selection-end-line="575" selection-end-column="17" />
+            <state relative-caret-position="223">
+              <caret line="570" column="27" selection-start-line="570" selection-start-column="5" selection-end-line="570" selection-end-column="27" />
               <folding>
                 <element signature="e#247#284#0" expanded="true" />
                 <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="569" selection-start-line="2" selection-start-column="569" selection-end-line="2" selection-end-column="569" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="516" selection-start-line="1" selection-start-column="506" selection-end-line="1" selection-end-column="516" />
             </state>
           </provider>
         </entry>
@@ -129,10 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>patch_replication_callback</find>
-      <find>model</find>
-      <find>G_ema</find>
-      <find>ema</find>
       <find>step</find>
       <find>GD</find>
       <find>G_D</find>
@@ -158,7 +174,11 @@
       <find>MyLogger</find>
       <find>loaders</find>
       <find>loader</find>
+      <find>MultiEpochSampler</find>
       <find>get_data_loaders</find>
+      <find>DataLoader</find>
+      <find>use_multiepoch_sampler</find>
+      <find>multi</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -175,11 +195,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/sample.py" />
-        <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" />
         <option value="$PROJECT_DIR$/inception_utils.py" />
         <option value="$PROJECT_DIR$/train_fns.py" />
         <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" />
       </list>
     </option>
   </component>
@@ -287,14 +307,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="185" y="23" width="1255" height="877" extended-state="0" />
+    <frame x="128" y="23" width="1255" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25886232" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25886232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.124840766" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.124840766" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -398,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.pyenv/versions/anaconda3-4.3.1/envs/python36/lib/python3.6/site-packages/torchvision/models/inception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -439,13 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="516" selection-start-line="1" selection-start-column="506" selection-end-line="1" selection-end-column="516" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -468,8 +474,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="210" column="22" selection-start-line="210" selection-start-column="22" selection-end-line="210" selection-end-column="22" />
+        <state relative-caret-position="240">
+          <caret line="213" column="21" lean-forward="true" selection-start-line="213" selection-start-column="21" selection-end-line="213" selection-end-column="21" />
           <folding>
             <element signature="e#301#310#0" expanded="true" />
           </folding>
@@ -478,12 +484,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="575" column="17" selection-start-line="575" selection-start-column="17" selection-end-line="575" selection-end-column="17" />
+        <state relative-caret-position="223">
+          <caret line="570" column="27" selection-start-line="570" selection-start-column="5" selection-end-line="570" selection-end-column="27" />
           <folding>
             <element signature="e#247#284#0" expanded="true" />
             <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="516" selection-start-line="1" selection-start-column="506" selection-end-line="1" selection-end-column="516" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="569" selection-start-line="2" selection-start-column="569" selection-end-line="2" selection-end-column="569" />
         </state>
       </provider>
     </entry>
