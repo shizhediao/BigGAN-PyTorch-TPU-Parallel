@@ -209,17 +209,20 @@ def run(config):
       # G.to(device)
       # D.to(device)
       # G_ema.to(device)
-
-      model.G.train()
-      model.D.train()
-      if config['ema']:
-        model.G_ema.train()
-      # if config['D_fp16']:
-      #   x, y = x.to(device).half(), y.to(device)
-      # else:
-      #   x, y = x.to(device), y.to(device)
-      metrics = train(x, y)
-      print("metric: ", metrics)
+      try:
+        model.G.train()
+        model.D.train()
+        if config['ema']:
+          model.G_ema.train()
+        # if config['D_fp16']:
+        #   x, y = x.to(device).half(), y.to(device)
+        # else:
+        #   x, y = x.to(device), y.to(device)
+        metrics = train(x, y)
+        print("metric: ", metrics)
+      except:
+        print("flag5, error!")
+        os._exit(0)
       # train_log.log(itr=int(state_dict['itr']), **metrics)
       #
       # # Every sv_log_interval, log singular values
