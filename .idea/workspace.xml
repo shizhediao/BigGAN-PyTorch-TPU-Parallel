@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="" />
+    <list default="true" id="ad7b54bc-6890-4ac2-811c-ddb592d65a40" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,21 +24,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="py" value="21" />
+          <entry key="md" value="1" />
+          <entry key="py" value="24" />
           <entry key="sh" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="11" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="21" />
+          <entry key="Python" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="27" />
-          <entry key="py" value="1159" />
+          <entry key="py" value="1207" />
           <entry key="sh" value="8" />
         </counts>
       </usages-collector>
@@ -44,18 +48,18 @@
         <counts>
           <entry key="Bash" value="8" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="1159" />
+          <entry key="Python" value="1207" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="128" column="46" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="46" />
+            <state relative-caret-position="-72">
+              <caret line="221" column="23" lean-forward="true" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -76,14 +80,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/calculate_inception_moments.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train_fns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="64" column="19" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="19" />
+            <state relative-caret-position="535">
+              <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
               <folding>
-                <element signature="e#407#425#0" expanded="true" />
+                <element signature="e#96#108#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BigGAN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -111,9 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>G_D</find>
-      <find>inception_model</find>
-      <find>deleting</find>
       <find>MetricsLogger</find>
       <find>Deleting singular value</find>
       <find>test_log</find>
@@ -129,10 +139,8 @@
       <find>nn.para</find>
       <find>opti</find>
       <find>MyLogger</find>
-      <find>loaders</find>
       <find>loader</find>
       <find>MultiEpochSampler</find>
-      <find>DataLoader</find>
       <find>use_multiepoch_sampler</find>
       <find>multi</find>
       <find>load_in_mem</find>
@@ -141,6 +149,11 @@
       <find>inception_utils.load_inception_net(device</find>
       <find>load_inception_net</find>
       <find>incep</find>
+      <find>DataLoader</find>
+      <find>loaders</find>
+      <find>nn.</find>
+      <find>train</find>
+      <find>GAN_training_function</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -159,9 +172,9 @@
         <option value="$PROJECT_DIR$/inception_utils.py" />
         <option value="$PROJECT_DIR$/train_fns.py" />
         <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bs256x8.sh" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh" />
         <option value="$PROJECT_DIR$/calculate_inception_moments.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -390,27 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_fns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
-          <folding>
-            <element signature="e#96#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="570" column="27" selection-start-line="570" selection-start-column="5" selection-end-line="570" selection-end-column="27" />
-          <folding>
-            <element signature="e#247#284#0" expanded="true" />
-            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/launch_BigGAN_bssmall.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -432,13 +424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BigGAN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inception_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -449,22 +434,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/calculate_inception_moments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="128" column="46" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="46" />
+        <state relative-caret-position="1037">
+          <caret line="89" column="26" lean-forward="true" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
           <folding>
-            <element signature="e#301#310#0" expanded="true" />
+            <element signature="e#407#425#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calculate_inception_moments.py">
+    <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="19" />
+        <state relative-caret-position="223">
+          <caret line="570" column="27" selection-start-line="570" selection-start-column="5" selection-end-line="570" selection-end-column="27" />
           <folding>
-            <element signature="e#407#425#0" expanded="true" />
+            <element signature="e#247#284#0" expanded="true" />
+            <marker date="1587651652208" expanded="true" signature="46091:46094" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytorch-xla-env-setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-866">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BigGAN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_fns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+          <folding>
+            <element signature="e#96#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="221" column="23" lean-forward="true" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+          <folding>
+            <element signature="e#301#310#0" expanded="true" />
           </folding>
         </state>
       </provider>

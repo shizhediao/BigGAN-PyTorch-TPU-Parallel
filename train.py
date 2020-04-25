@@ -219,18 +219,19 @@ def run(config):
       # else:
       #   x, y = x.to(device), y.to(device)
       metrics = train(x, y)
-      train_log.log(itr=int(state_dict['itr']), **metrics)
-
-      # Every sv_log_interval, log singular values
-      if (config['sv_log_interval'] > 0) and (not (state_dict['itr'] % config['sv_log_interval'])):
-        train_log.log(itr=int(state_dict['itr']),
-                      **{**utils.get_SVs(model.G, 'G'), **utils.get_SVs(model.D, 'D')})
-
-      # If using my progbar, print metrics.
-      if config['pbar'] == 'mine':
-        print(', '.join(['itr: %d' % state_dict['itr']]
-                        + ['%s : %+4.3f' % (key, metrics[key])
-                           for key in metrics]), end=' ')
+      print("metric: ", metrics)
+      # train_log.log(itr=int(state_dict['itr']), **metrics)
+      #
+      # # Every sv_log_interval, log singular values
+      # if (config['sv_log_interval'] > 0) and (not (state_dict['itr'] % config['sv_log_interval'])):
+      #   train_log.log(itr=int(state_dict['itr']),
+      #                 **{**utils.get_SVs(model.G, 'G'), **utils.get_SVs(model.D, 'D')})
+      #
+      # # If using my progbar, print metrics.
+      # if config['pbar'] == 'mine':
+      #   print(', '.join(['itr: %d' % state_dict['itr']]
+      #                   + ['%s : %+4.3f' % (key, metrics[key])
+      #                      for key in metrics]), end=' ')
 
       # Save weights and copies as configured at specified interval
       # if not (state_dict['itr'] % config['save_every']):
