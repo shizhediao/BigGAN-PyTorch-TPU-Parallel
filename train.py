@@ -201,6 +201,7 @@ def run(config):
     #   # pbar = tqdm(loader[0])
     #   pbar = tqdm(loader)
     for i, (x, y) in enumerate(loader):
+      print("iter: ", i)
       # Increment the iteration counter
       state_dict['itr'] += 1
       # Make sure G and D are in training mode, just in case they got set to eval
