@@ -186,10 +186,10 @@ def run(config):
     else:
       train = train_fns.dummy_training_function()
     # Prepare Sample function for use with inception metrics
-    sample = functools.partial(utils.sample,
-                               G=(model.G_ema if config['ema'] and config['use_ema']
-                                  else model.G),
-                               z_=z_, y_=y_, config=config)
+    # sample = functools.partial(utils.sample,
+    #                            G=(model.G_ema if config['ema'] and config['use_ema']
+    #                               else model.G),
+    #                            z_=z_, y_=y_, config=config)
 
     print('Beginning training at epoch %d...' % state_dict['epoch'])
 

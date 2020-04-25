@@ -40,7 +40,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="27" />
-          <entry key="py" value="1207" />
+          <entry key="py" value="1246" />
           <entry key="sh" value="8" />
         </counts>
       </usages-collector>
@@ -48,18 +48,18 @@
         <counts>
           <entry key="Bash" value="8" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="1207" />
+          <entry key="Python" value="1246" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="221" column="23" lean-forward="true" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+            <state relative-caret-position="482">
+              <caret line="220" column="21" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
               <folding>
                 <element signature="e#301#310#0" expanded="true" />
               </folding>
@@ -83,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_fns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+            <state relative-caret-position="204">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="e#96#108#0" expanded="true" />
               </folding>
@@ -92,11 +92,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BigGAN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="204">
+              <caret line="195" column="28" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MetricsLogger</find>
-      <find>Deleting singular value</find>
       <find>test_log</find>
       <find>reinit</find>
       <find>sv_log_interval</find>
@@ -137,7 +138,6 @@
       <find>sample</find>
       <find>parallel</find>
       <find>nn.para</find>
-      <find>opti</find>
       <find>MyLogger</find>
       <find>loader</find>
       <find>MultiEpochSampler</find>
@@ -154,6 +154,9 @@
       <find>nn.</find>
       <find>train</find>
       <find>GAN_training_function</find>
+      <find>ema</find>
+      <find>devices</find>
+      <find>opti</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -185,7 +188,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="128" />
+    <option name="x" value="47" />
     <option name="y" value="23" />
     <option name="width" value="1255" />
     <option name="height" value="877" />
@@ -282,7 +285,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="128" y="23" width="1255" height="877" extended-state="0" />
+    <frame x="47" y="23" width="1255" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25886232" />
@@ -470,29 +473,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BigGAN.py">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="482">
+          <caret line="220" column="21" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+          <folding>
+            <element signature="e#301#310#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_fns.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+        <state relative-caret-position="204">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="10" />
           <folding>
             <element signature="e#96#108#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/BigGAN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="221" column="23" lean-forward="true" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+        <state relative-caret-position="204">
+          <caret line="195" column="28" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
           <folding>
-            <element signature="e#301#310#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
