@@ -60,6 +60,7 @@ def run(config):
   device = xm.xla_device()
   # net = inception_utils.load_inception_net(device, parallel=config['parallel'])
   net = inception_utils.load_inception_net()
+  net = net.to(device)
   pool, logits, labels = [], [], []
   for i, (x, y) in enumerate(tqdm(loaders[0])):
     x = x.to(device)
