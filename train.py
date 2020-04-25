@@ -214,10 +214,10 @@ def run(config):
       model.D.train()
       if config['ema']:
         model.G_ema.train()
-      if config['D_fp16']:
-        x, y = x.to(device).half(), y.to(device)
-      else:
-        x, y = x.to(device), y.to(device)
+      # if config['D_fp16']:
+      #   x, y = x.to(device).half(), y.to(device)
+      # else:
+      #   x, y = x.to(device), y.to(device)
       metrics = train(x, y)
       train_log.log(itr=int(state_dict['itr']), **metrics)
 
