@@ -1,7 +1,10 @@
 # BigGAN-PyTorch-TPU-Parallel
 BigGAN-PyTorch-TPU-Parallel is a parallel version for training BigGAN. It succeeds to run with batchsize=8 and 16. Due to the strong recommandation for distributed training from xla team, I move to [distributed](https://github.com/shizhediao/BigGAN-PyTorch-TPU-Distribute) one.
 
-### This entire repo is still under development. Pull requests to fix some of the outstading Issues would be appreciated, developers of all experience level welcome.
+### I have fixed a lot of issues and the training process of the current repo is going well.
+### This entire repo is still under development, you are welcome to have a try and have a discussion with me if you find any issues.
+### Pull requests to fix some Issues would be appreciated, developers of all experience level welcome.
+
 This repo is developed based on the author's officially unofficial PyTorch BigGAN [implementation.](https://github.com/ajbrock/BigGAN-PyTorch)
 
 --------------BELOW is its original instruction--------------
